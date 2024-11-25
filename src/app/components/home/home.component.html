@@ -1,1 +1,49 @@
-<p>home works!</p>
+<app-slider></app-slider>
+<div class="d-flex justify-content-between container">
+    <div class="row">
+        <div class="col-md-6 text-welcome">
+            <span class="title1">Italian Restaurant</span>
+            <h3 class="title2 mt-3">Welcome</h3>
+            <p class="t-center m-b-22 size3 m-l-r-auto">
+                Donec quis lorem nulla. Nunc eu odio mi. Morbi nec lobortis est. Sed fringilla, nunc sed imperdiet lacinia,
+                nisl ante egestas mi, ac facilisis ligula sem id neque.
+            </p>
+        </div>
+        <div class="col-md-6 image">
+            <img class="img" src="assets/images/food.jpg" />
+        </div>
+    </div>
+ 
+</div>
+<div class="discover">
+    <div class="discover-img " [style.backgroundImage]="'url(assets/images/discover.jpg)'" >
+        <div class="text-overlay">
+            <span class="tit2">Discover</span>
+            <h3 class="tit4">Pato Place</h3>
+        </div>
+    </div>
+    <div class="content-intro bg-white p-t-77 p-b-133">
+        <div class="container">
+            <div class="row">
+                @for (image of images; let i = $index ; track i) {
+                <div class="col-md-4 p-t-30">
+                    <!-- Block1 -->
+                    <div class="blo1">
+                        <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+                            <a href="#"><img [src]="image.src" alt="IMG-INTRO"></a>
+                        </div>
+
+                        <div class="wrap-text-blo1 p-t-35">
+                            <a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                                {{image.title}}
+                            </h4></a>
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+</div>
+<app-category></app-category>
+

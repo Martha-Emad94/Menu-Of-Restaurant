@@ -1,0 +1,197 @@
+.container
+{
+  max-width: 1200px;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  
+}
+.text-welcome{
+  padding-top: 45px;
+  text-align: center;
+}
+.title1{
+  font-family: Courgette;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #d61c22;
+}
+.title2{
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+
+}
+.image{
+  display: flex;
+  justify-content: center; /* محاذاة الصورة إلى الوسط */
+  align-items: center; /* محاذاة عمودية إذا لزم الأمر */
+  border-radius: 30px; /* لإعطاء الحاوية حواف دائرية */
+}
+.img{
+  display: block;
+  max-width: 390px; /* اجعل الصورة متجاوبة */
+  min-height: 4px; /* الحفاظ على النسبة */
+  border-radius: 10px; /* حواف دائرية للصورة */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+
+}
+.discover {
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ 
+}
+
+.discover-img {
+  max-width: 100%;
+  height: 450px;
+  background-position: center -3px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  display: flex; /* لجعل المحتوى مرنًا */
+  justify-content: center; /* محاذاة أفقية */
+  align-items: center; /* محاذاة عمودية */
+  position: relative;
+  margin-bottom: 10px; /* لوضع النصوص */
+}
+
+.text-overlay {
+  display: flex;
+  flex-direction: column; /* لضمان ترتيب النصوص رأسياً */
+  align-items: center; /* لمحاذاة النصوص في المنتصف أفقياً */
+  justify-content: center; /* لمحاذاة النصوص في المنتصف عمودياً */
+  position: absolute; /* يتيح تعديل مكان النصوص */
+  top: 50%; /* المحاذاة العمودية */
+  left: 50%; /* المحاذاة الأفقية */
+  transform: translate(-50%, -50%); /* لجعل النصوص في منتصف الصورة */
+  text-align: center;
+}
+
+.tit2 {
+  font-family: Courgette;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #d61c22;
+  padding: 0 15px;
+}
+
+.tit4 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  word-spacing: 6px;
+  padding-top: 5px;
+}
+.content-intro {
+  background-color: #ffffff; /* لون الخلفية */
+  padding-bottom: 50px; /* المسافة السفلية */
+}
+
+/* تصميم العنصر */
+.blo1 {
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* الصورة مع تأثير عند التمرير */
+.wrap-pic-blo1 {
+  border-radius: 10px; /* تقريب الزوايا */
+  overflow: hidden; /* لإخفاء الزوايا */
+  transition: all 0.4s ease;
+}
+
+.wrap-pic-blo1 img {
+  width: 100%; /* اجعل الصورة تملأ العنصر بالكامل */
+  height: auto;
+  transition: transform 0.4s ease;
+}
+
+.wrap-pic-blo1:hover img {
+  transform: scale(1.1); /* تكبير الصورة عند التمرير */
+}
+
+/* النصوص */
+.wrap-text-blo1 {
+  margin-top: 35px;
+}
+
+.wrap-text-blo1 h4 {
+  transition: color 0.3s ease-in-out;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 22px;
+  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0px;
+}
+
+.wrap-text-blo1 h4:hover {
+  color: #ff5722; /* لون النص عند التمرير */
+}
+
+.wrap-text-blo1 a {
+  text-decoration: none; /* إزالة الخط السفلي للرابط */
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+/* تأثير التكبير الكامل */
+.wrap-pic-blo1:hover {
+  transform: translateY(-10px); /* رفع الكتلة عند التمرير */
+}
+@media (max-width: 768px) {
+  .container {
+    padding-top: 80px; /* تقليل الحشو العلوي على الشاشات الصغيرة */
+    padding-bottom: 60px; /* تقليل الحشو السفلي */
+  }
+
+  .title2 {
+    font-size: 35px; /* تصغير حجم الخط على الشاشات الصغيرة */
+  }
+
+  .img {
+    max-width: 90%; /* تعديل عرض الصورة لتناسب الهواتف */
+    border-radius: 15px; /* تقليل الحواف الدائرية */
+  }
+  .content-intro {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.wrap-text-blo1 h4 {
+    font-size: 18px;
+}
+}
+
+/* استجابة التصميم للأجهزة الصغيرة جدًا (الهاتف المحمول) */
+@media (max-width: 480px) {
+  .container {
+    padding-top: 60px; /* تقليل الحشو العلوي */
+    padding-bottom: 50px; /* تقليل الحشو السفلي */
+  }
+
+  .title1 {
+    font-size: 25px; /* تصغير العنوان الأول */
+  }
+
+  .title2 {
+    font-size: 28px; /* تصغير العنوان الثاني */
+  }
+
+  .img {
+    max-width: 100%; /* الصورة تأخذ كامل عرض الشاشة */
+  }
+}
+  

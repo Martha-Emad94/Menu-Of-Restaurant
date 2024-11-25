@@ -1,0 +1,100 @@
+/* لإخفاء الشريط الجانبي افتراضيًا */
+*{
+  padding: 0;
+  margin: 0;
+}
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width:350px;
+  height: 100%;
+  background-color:white;
+  color: white;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+
+/* لإظهار الشريط الجانبي */
+.sidebar-visible {
+  transform: translateX(0);
+}
+
+/* زر الإغلاق */
+.close {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.menu{
+  margin-top: 120px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menu li{
+  margin: 15px;
+}
+.title{
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  text-decoration:none;
+  text-transform: uppercase;
+}
+ .title:hover{
+  color: #ff5722;
+ }
+ .bnt{
+  width: 150px;
+  height: 40px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.1;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #111111;
+  border-radius: 10px;
+  margin: 20px;
+ }
+ .bnt:hover{
+  background-color: #ec1d25;
+ }
+ .gallery{
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #333;
+ }
+  .box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
+    gap: 5px; /* مسافة بين الصور */
+    margin-top: 20px;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center; /* توسيط الصورة أفقياً */
+    align-items: center; /* توسيط الصورة عمودياً */
+  }
+  
+  .image {
+    width: 80px;
+    height: 80px; /* تجعل الصورة تتكيف مع الحاوية */
+    border-radius: 8px; /* زوايا مستديرة */
+    transition: transform 0.3s ease; /* تأثير عند التحويم */
+  }
+  
+  .image:hover {
+    transform: scale(1.1); /* تكبير الصورة عند التحويم */
+  }

@@ -1,19 +1,13 @@
-<header class="header">
+<header class="header" [ngClass]="{'scrolled': isScrolled}">
     <div class="nav container">
       <mat-toolbar class="d-flex justify-content-between">
-        <div class="d-flex main">
-          <div class="d-flex align-items-center">
-            <button class="logo">
-              <h1 class="name1">PATO</h1>
-              <h6 class="name2">RESTAURANT</h6>
-            </button>
-          </div>
-        </div>
-  
-        <!-- Hamburger icon for small screens -->
-        <button class="menu-icon">
-          <span class="material-icons">menu</span>
-        </button>
+            <div class="logo">
+              <a href="index.html">
+                <img src="assets/images/logo.jpg" alt="IMG-LOGO">
+              </a>
+            </div>
+      
+      
   
         <div class="d-flex justify-content-center submain" >
           <a routerLink="/" routerLinkActive="active" class="title">HOME</a>
@@ -22,7 +16,8 @@
           <a routerLink="/about" routerLinkActive="active" class="title">ABOUT</a>
           <a routerLink="/contact" routerLinkActive="active" class="title">Contact</a>
         </div>
+          <button (click)="toggleSidebar()" class="sidebar" ></button>
       </mat-toolbar>
     </div>
   </header>
-  
+<app-sidebar [isSidebarVisible]="isSidebarVisible"  (closeSidebarEvent)="closeSidebar()"></app-sidebar>
