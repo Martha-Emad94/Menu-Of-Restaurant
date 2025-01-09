@@ -1,1 +1,49 @@
-<p>menu works!</p>
+<div>
+  <section *ngFor="let item of menuItems; let i = index">
+    <!-- قسم الوجبات -->
+    <div class="img-header p-2" [style.background-image]="'url(' + item.image + ')'" style="background-position: center;">
+      <div class="text-overlay">
+        <h2 class="tit2 p-2">{{ item.name }}</h2>
+      </div>
+    </div>
+    <div class="container">
+      <div *ngIf="mealsByCategory.length">
+        <div *ngFor="let category of mealsByCategory">
+          <div *ngIf="category.category === item.name">
+            <div class="row">
+              <div *ngFor="let meal of category.meals" class="col-md-4 col-sm-6 col-xs-12 mb-4">
+                <div class="meal p-3 border rounded shadow-sm text-center">
+                  <h2 class="h5">{{ meal.strMeal }}</h2>
+                  <img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}" class="img-fluid rounded mb-3">
+                  <p><strong>Price:</strong> 120$</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم المشروبات -->
+  <section>
+    <div class="img-header p-2" [style.background-image]="'url(assets/images/drink.jpg)'"
+         style="background-position: center;">
+      <div class="text-overlay">
+        <h2 class="tit2 p-2">Drinks</h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div *ngFor="let drink of drinks" class="col-md-4 col-sm-6 col-xs-12 mb-4">
+          <div class="meal p-3 border rounded shadow-sm text-center">
+            <h2 class="h5">{{ drink.strDrink }}</h2>
+            <img [src]="drink.strDrinkThumb" alt="{{ drink.strDrink }}" class="img-fluid rounded mb-3">
+            <p><strong>Price:</strong> 100$</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

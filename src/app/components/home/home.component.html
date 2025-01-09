@@ -1,20 +1,24 @@
-<app-slider></app-slider>
-<div class="d-flex justify-content-between container">
-    <div class="row">
-        <div class="col-md-6 text-welcome">
-            <span class="title1">Italian Restaurant</span>
-            <h3 class="title2 mt-3">Welcome</h3>
-            <p class="t-center m-b-22 size3 m-l-r-auto">
-                Donec quis lorem nulla. Nunc eu odio mi. Morbi nec lobortis est. Sed fringilla, nunc sed imperdiet lacinia,
-                nisl ante egestas mi, ac facilisis ligula sem id neque.
-            </p>
+<app-slider [slides]="slides" [id]="'carousel1'" 
+[enableAnimation]="true"></app-slider>
+<div [style.backgroundImage]="'url(assets/images/pattern2.jpg)'">
+    <div class="d-flex justify-content-between container">
+        <div class="row">
+            <div class="col-md-6 text-welcome">
+                <span class="title1">Italian Restaurant</span>
+                <h3 class="title2 mt-3">Welcome</h3>
+                <p class="t-center m-b-22 size3 m-l-r-auto">
+                    Donec quis lorem nulla. Nunc eu odio mi. Morbi nec lobortis est. Sed fringilla, nunc sed imperdiet lacinia,
+                    nisl ante egestas mi, ac facilisis ligula sem id neque.
+                </p>
+            </div>
+            <div class="col-md-6 image">
+                <img class="img" src="assets/images/food.jpg" />
+            </div>
         </div>
-        <div class="col-md-6 image">
-            <img class="img" src="assets/images/food.jpg" />
-        </div>
+     
     </div>
- 
 </div>
+
 <div class="discover">
     <div class="discover-img " [style.backgroundImage]="'url(assets/images/discover.jpg)'" >
         <div class="text-overlay">
@@ -46,4 +50,23 @@
     </div>
 </div>
 <app-category></app-category>
+<app-video></app-video>
+<div [style.backgroundImage]="'url(assets/images/pattern2.jpg)'">
+    <div class="container" >
+        <div class="row d-flex justify-content-between">
+            <div class="col-md-6">
+                <app-reservation></app-reservation>
+            </div>
+            <div class="col-md-6 image">
+            <img class="img" src="assets/images/booking1.jpg"/>
+            </div>
+        </div>
+    
+    </div>
+</div>
+<app-slider [slides]="slides2" class="home-slider" [showImage]="false" [show]="true" [id]="'carousel2'"
+[enableAnimation]="false">
+    <app-btn-menu *ngIf="showButton" ></app-btn-menu>
+</app-slider>
 
+<app-footer></app-footer>

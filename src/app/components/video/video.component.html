@@ -1,0 +1,36 @@
+<section class="section-video parallax100" [style.backgroundImage]="'url(assets/images/cover-video.jpg)'"
+  style="background-position: center;">
+  <div class="content-video ">
+    <span class="tit2 p-l-15 p-r-15">Discover</span>
+
+    <h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">Our Video</h3>
+
+    <!-- Play Button -->
+    <div class="btn-play" (click)="openVideo()">
+      <div class="play">
+        <i class="fa fa-play fs-18 m-l-2" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  @if (showVideo) {
+      <div class="modal-content">
+     
+          <div class="modal-header">
+            <button type="button" class="close" aria-label="Close" (click)="closeVideo()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe width="854" height="480" src="https://www.youtube.com/embed/5k1hSu2gdKE"
+              title="The Top Five Secrets of a Successful Restaurant" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+    
+        </div>
+  }
+
+
+</section>

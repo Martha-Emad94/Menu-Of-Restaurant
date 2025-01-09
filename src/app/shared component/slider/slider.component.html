@@ -1,0 +1,61 @@
+
+<div [id]="id" class="carousel slide carousel-fade">
+  <div class="carousel-indicators">
+    <button *ngFor="let slide of slides; let i = index" type="button" 
+      [attr.data-bs-target]="'#' +id" 
+      [attr.data-bs-slide-to]="i" 
+      [class.active]="i === 0"
+      [attr.aria-label]="'Slide ' + (i + 1)"
+      [attr.aria-current]="i === 0 ? 'true' : null">
+    </button>
+  </div>
+  <div *ngFor="let slide of slides; let i = index" class="carousel-item" [class.active]="i === 0" >
+    <!-- إخفاء الصورة فقط بناءً على showImage -->
+    <div *ngIf="showImage">
+      <img [src]="slide.image" class=" img d-block w-100" alt="Slide {{i + 1}}">
+    </div>
+    
+    <!-- النص سيبقى دائمًا ظاهر -->
+    <div class="caption"  >
+      <h5 class="caption1-slide1 txt1 t-center  m-b-15"  [ngClass]="{ 'animate__animated animate__rotateInDownLeft': enableAnimation }">{{slide.title}}</h5>
+      <p class="caption2-slide1 tit1 t-center  m-b-37" [ngClass]="{ 'animate__animated animate__rotateInUpRight': enableAnimation }">{{slide.text}}</p>
+      <app-btn-menu *ngIf="showImage"></app-btn-menu>
+      
+      <div *ngIf="show" >
+          <div class="wrap-cir-pic"  
+          [@zoomAnimation]="isVisible ? 'visible' : 'hidden'">
+            <img class="imageperson" [src]="slide.image" alt="IGM-AVATAR">
+          </div>
+          <div *ngIf="isVisible">
+            <div class="content-review" [@fadeInFromBottom]>
+              <p class="txt12">
+                “{{slide.review }}”
+              </p>
+              <div class="star-review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
+                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
+                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
+                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
+              </div>
+              <div class="more-review">
+                {{slide.author }}
+              </div>
+          
+          </div>
+            
+      
+          </div>
+           
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#' + id" data-bs-slide="prev"  (click)="navigate('prev')">
+    <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#' + id" data-bs-slide="next" (click)="navigate('next')">
+    <span class="carousel-control-next-icon" aria-hidden="true"  ></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

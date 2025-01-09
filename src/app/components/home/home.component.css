@@ -58,7 +58,7 @@
   justify-content: center; /* محاذاة أفقية */
   align-items: center; /* محاذاة عمودية */
   position: relative;
-  margin-bottom: 10px; /* لوضع النصوص */
+  margin-bottom: 5px; /* لوضع النصوص */
 }
 
 .text-overlay {
@@ -145,12 +145,55 @@
   display: inline-block;
   transition: transform 0.3s ease-in-out;
 }
+.image-res {
+  margin-top: 30px;
+  max-width: 390px; /* جعل الصورة متجاوبة */
+  border-radius: 10px; /* حواف دائرية للصورة */
+  overflow: hidden; /* لإخفاء الأجزاء الخارجة عند التكبير */
+}
 
+.image-res img {
+  width: 100%; /* لضمان أن الصورة تأخذ عرض الحاوية */
+  border-radius: 10px; /* الحفاظ على الحواف الدائرية */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.image-res:hover img {
+  transform: scale(1.1); /* تكبير الصورة بنسبة 10% */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل للصورة عند التكبير */
+}
 /* تأثير التكبير الكامل */
 .wrap-pic-blo1:hover {
   transform: translateY(-10px); /* رفع الكتلة عند التمرير */
 }
+:host ::ng-deep .home-slider .carousel{
+  height: 520px;
+ }
+:host ::ng-deep .home-slider .txt1{
+  color: #ec1d25;
+  font-family: Courgette;
+  font-size: 30px;
+  line-height: 1.2;
+ }
+ :host ::ng-deep .home-slider .tit1{
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 11px;
+ }
+ :host ::ng-deep .home-slider .caption{
+ margin-bottom: 2px;
+ align-items: center;
+ }
+ :host ::ng-deep .home-slider .carousel-indicators button{
+  background-color: rgba(78, 78, 78, 0.6);
+ }
+ :host ::ng-deep .home-slider .carousel-indicators button :active{
+  background-color: rgb(0, 0, 0);
+ }
 @media (max-width: 768px) {
   .container {
     padding-top: 80px; /* تقليل الحشو العلوي على الشاشات الصغيرة */

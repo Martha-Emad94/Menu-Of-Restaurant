@@ -2,10 +2,10 @@
 .section-ourmenu {
     padding: 115px 0 120px;
     background: repeat;
+
 }
 .container {
     max-width: 1200px;
-    height: 1000px;
 }
 
 .title-section-ourmenu {
@@ -44,17 +44,11 @@
     overflow: hidden;
     margin-bottom: 30px;
 }
-.item_image{
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
+
 
 .image {
     width: 100%;
-    height: 100%;
+    height: 280px;
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s ease;

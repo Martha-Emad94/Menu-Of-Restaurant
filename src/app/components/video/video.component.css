@@ -1,0 +1,124 @@
+/* Section Video Styles */
+.section-video {
+    max-width: 100%;
+    height: 500px;
+    background-position: center -3px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    display: flex; /* لجعل المحتوى مرنًا */
+    justify-content: center; /* محاذاة أفقية */
+    align-items: center; /* محاذاة عمودية */
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.content-video {
+
+    text-align: center;
+}
+
+.tit2 {
+    font-family: Courgette;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #d61c22;
+    padding: 0 15px;
+}
+
+.tit4 {
+    font-family: Poppins;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  word-spacing: 6px;
+  padding-top: 5px;
+}
+.btn-play{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.play{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #333;
+    transition: 0.3s ease;
+}
+
+.play:hover {
+    transform: scale(1.1);
+    background-color: #ec1d25;
+    opacity: 0.5;
+}
+
+.modal-content {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+}
+
+.modal-header .close {
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: 0.3s ease;
+}
+
+.modal-header .close:hover {
+    transform: scale(1.2);
+    color: #d61c22;
+}
+
+.modal-body {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.modal-body iframe {
+    width: 100%;
+    height: 100%;
+    max-width: 854px;
+    max-height: 480px;
+    border: none;
+    border-radius: 8px;
+}

@@ -86,6 +86,7 @@ body {
     color: white;
     text-decoration: none;
     position: relative;
+    cursor: pointer;
   }
   
   .submain .title:hover {
