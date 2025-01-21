@@ -1,43 +1,39 @@
-/* General container styling */
-.img-header{
+/* Header Image Styling */
+.img-header {
   width: 100%;
   height: 350px;
-  background-position: center -3px;
+  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  text-align: center;
-  display: flex; /* لجعل المحتوى مرنًا */
-  justify-content: center; /* محاذاة أفقية */
-  align-items: center; /* محاذاة عمودية */
-  position: relative;
-  margin-bottom: 5px;
-}
-.text-overlay {
   display: flex;
-  flex-direction: column; /* لضمان ترتيب النصوص رأسياً */
-  align-items: center; /* لمحاذاة النصوص في المنتصف أفقياً */
-  justify-content: center; /* لمحاذاة النصوص في المنتصف عمودياً */
-  position: absolute; /* يتيح تعديل مكان النصوص */
-  top: 40%; /* المحاذاة العمودية */
-  left: 50%; /* المحاذاة الأفقية */
-  transform: translate(-50%, -50%); /* لجعل النصوص في منتصف الصورة */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.text-overlay {
   text-align: center;
 }
 
 .tit2 {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 40px;
   color: white;
   text-transform: uppercase;
-  letter-spacing: 10px;
-  word-spacing: 6px;
 }
 
+/* Meal Row Styling */
 .meal {
-  background-color: #f9f9f9;
-  height: 300px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -46,36 +42,50 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.meal img {
-  max-height: 150px;
+.meal-image img {
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  width: 300px;
   border-radius: 8px;
-  margin-bottom: 12px;
 }
 
-  .meal h2 {
-    max-width: 100%; /* Adjust to parent container size */
-    font-size: 1.5rem;
-    margin-bottom: 12px;
-    color: #333;
-    white-space: nowrap;
+.meal-details {
+  flex: 1;
+}
+
+.meal-title {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.meal-description {
+  width: 250px;
+  height: 30px;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 8px;
+  white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    
-  }
+  text-overflow: ellipsis;
   
-  .meal p {
-    margin: 8px 0;
-    font-size: 1rem;
-    color: #555;
+}
+
+.meal-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .meal {
+    flex-direction: column;
+    text-align: center;
   }
-  
-  /* Responsive grid */
-  .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    padding: 16px;
+
+  .meal-image img {
+    width: 100px;
+    height: 100px;
   }
-  
+}

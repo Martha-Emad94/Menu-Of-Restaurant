@@ -1,5 +1,5 @@
 export interface Meals {
-price: string|number;
+    price: string|number;
     idMeal: string;
     strMeal: string;
     strCategory: string;

@@ -1,20 +1,23 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import {MatPaginator, MatPaginatorModule, PageEvent} from '@angular/material/paginator';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @Component({
   selector: 'app-pagination',
   standalone: true,
-  imports:[MatPaginatorModule],
+  imports: [MatPaginatorModule, NgxPaginationModule],
   templateUrl: './pagination.component.html',
-  styleUrl: './pagination.component.css'
+  styleUrls: ['./pagination.component.css']
 })
 export class PaginationComponent {
-  @Input() totalItems: number=0;
-  @Input() pageSize: number=0;
-  @Output() pageChanged = new EventEmitter<PageEvent>();
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+ 
+  @Output() pageChanged = new EventEmitter<number>();
+  
 
-
-  onPageChange(event: PageEvent) {
+  changePage(event: number) {
     this.pageChanged.emit(event);
   }
+ 
 }
+
+

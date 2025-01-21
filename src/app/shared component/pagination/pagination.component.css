@@ -1,0 +1,24 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  font-family: 'Lato', sans-serif;
+    font-size: 15px;
+}
+.ngx-pagination {
+  padding-left: 0px !important;
+}
+
+::ng-deep .current {
+  background-color: black !important;
+  border: transparent !important;
+  border-radius: 50% !important;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+::ng-deep .current:hover {
+  background-color: black !important;
+  border-radius: 50% !important; 
+  border: transparent !important;
+}
