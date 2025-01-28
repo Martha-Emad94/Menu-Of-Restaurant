@@ -6,15 +6,27 @@
         </div>
 
         <div class="row">
-            <div *ngFor="let item of menuItems; let i = index" [ngClass]="i <4 ? 'col-md-4' : 'col-md-8'">
+            <div *ngFor="let item of menuItems; let i = index" [ngClass]="i <6 ? 'col-md-4' : 'col-md-8'"
+            >
                 <!-- Item our menu -->
-                <div class="item-ourmenu">
+                @if(item.name !=='Drinks'){
+                <div class="item-ourmenu" (click)="RouetCategory(item.name)">
                     <img [src]="item.image" [alt]="item.name" class="image" />
                     <!-- Button -->
-                    <a href="#" class="btn2">
+                    <a class="btn2">
                         {{ item.name }}
                     </a>
                 </div>
+            }
+            @else {
+                <div class="item-ourmenu" (click)="RouetDrinks(item.name)">
+                    <img [src]="item.image" [alt]="item.name" class="image" />
+                    <!-- Button -->
+                    <a class="btn2">
+                        {{ item.name }}
+                    </a>
+                </div>
+            }
             </div>
         </div>
     </div>

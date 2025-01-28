@@ -24,4 +24,18 @@ export class FooterComponent {
     { src: 'assets/images/photo16.jpg', alt: 'Photo11' },
     { src: 'assets/images/photo17.jpg', alt: 'Photo12' },
   ];
+  isLightboxVisible = false;
+  currentImage: string = '';
+
+  // فتح نافذة العرض المكبّر
+  openLightbox(imageSrc: string): void {
+    this.currentImage = imageSrc;
+    this.isLightboxVisible = true;
+  }
+
+  // إغلاق نافذة العرض المكبّر
+  closeLightbox(): void {
+    this.isLightboxVisible = false;
+    this.currentImage = '';
+  }
 }

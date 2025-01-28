@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './sidebar.component.html',
+templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
   @Input() isSidebarVisible: boolean = false;
   @Output() closeSidebarEvent = new EventEmitter<void>();
-
+constructor(private router:Router){}
 
   images = [
     { src: 'assets/images/photo1.jpg', alt: 'Photo1' },
@@ -27,4 +27,34 @@ export class SidebarComponent {
   closeSidebar() {
     this.closeSidebarEvent.emit();
   }
+  isLightboxVisible = false;
+  currentImage: string = '';
+
+  // فتح نافذة العرض المكبّر
+  openLightbox(imageSrc: string): void {
+    this.currentImage = imageSrc;
+    this.isLightboxVisible = true;
+  }
+
+  // إغلاق نافذة العرض المكبّر
+  closeLightbox(): void {
+    this.isLightboxVisible = false;
+    this.currentImage = '';
+  }
+  routerHome(){
+    this.router.navigateByUrl("/");
+  }
+  routerMenu(){
+    this.router.navigateByUrl("/menu");
+  }
+  routerAbout(){
+    this.router.navigateByUrl("/about");
+  }
+  routerContact(){
+    this.router.navigateByUrl("/contact");
+  }
+  routerReservation(){
+    this.router.navigateByUrl("/Reservation");
+  }
+
 }

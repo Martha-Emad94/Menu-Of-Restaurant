@@ -22,3 +22,6 @@
   border-radius: 50% !important; 
   border: transparent !important;
 }
+::ng-deep a{
+  text-decoration: none;
+}

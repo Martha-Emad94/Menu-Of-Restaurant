@@ -4,7 +4,6 @@ import { CategoryComponent } from "../category/category.component";
 import { ReservationComponent } from "../reservation/reservation.component";
 import { VideoComponent } from '../video/video.component';
 import { BtnMenuComponent } from "../../shared component/btn-menu/btn-menu.component";
-import { FooterComponent } from "../footer/footer.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -13,7 +12,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-home',
   standalone: true,
   imports: [SliderComponent, CategoryComponent, ReservationComponent, VideoComponent,
-    FormsModule, CommonModule, BtnMenuComponent, FooterComponent],
+    FormsModule, CommonModule, BtnMenuComponent],
 templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -1,0 +1,46 @@
+<div class="container details">
+    <ng-template #loadingTemplate>
+        <div class="loading">
+            <img src="./assets/images/loading.svg" />
+        </div>
+    </ng-template>
+    @if(filterMeal){
+    <div class="row" >
+        <div class="col-6">
+            <div class="img ">
+                <img class="image" [src]='filterMeal.strMealThumb' />
+            </div>
+        </div>
+                  <div class="col-6">
+                <div class="card-body">
+                    <h5 class="card-title"> {{filterMeal.strMeal}} </h5>
+                    <p class="card-text "><span class="title">Price: </span>{{filterMeal.price | currency}} </p>
+                    <p class="card-text "><span class="title">Category: </span>{{filterMeal.strCategory}} </p>
+                    <p class="card-text "><span class="title">Area: </span>{{filterMeal.strArea}} </p>
+                    <div>
+                        <p class="card-text"><span class="title">Meal ingredients: </span>{{filterMeal.strIngredient1}} , {{filterMeal.strIngredient2}} , {{filterMeal.strIngredient3}}
+                            , {{filterMeal.strIngredient4}} , {{filterMeal.strIngredient5}} , {{filterMeal.strIngredient6}} , 
+                            {{filterMeal.strIngredient7}} , {{filterMeal.strIngredient8}} , {{filterMeal.strIngredient9}}.
+                        </p>
+                        <p class="card-text"><span class="title">Instructions making meal: </span>{{filterMeal.strInstructions}}</p>
+                    </div>
+    
+                    <div class="d-flex">
+                        <button class="back" (click)="Back()">Back</button>
+                        <div class="d-flex">
+                            <button class="bnt" (click)="prev()"><img class="prev"
+                                    src="../assets/images/prev.svg" /></button>
+    
+                            <p class="prev-next" >Prev | Next</p>
+                            <button class="bnt" (click)="next()"><img class="prev"
+                                    src="../assets/images/next.svg" /></button>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+    
+      
+    </div>
+}
+</div>

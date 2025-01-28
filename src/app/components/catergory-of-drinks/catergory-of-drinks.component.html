@@ -1,0 +1,35 @@
+<div>
+  <section>
+    <!-- قسم الوجبات -->
+    <div *ngFor="let item of menuItems">
+      <div *ngIf="item.name ==='Drinks'">
+        <app-title-page [image]="item.image" [title]="item.name"></app-title-page>
+      </div>
+    </div>
+
+    <div class="container">
+      <div *ngIf="categoryDrinks && categoryDrinks.length > 0 ">
+        <!-- Meals Section -->
+        <div class="row">
+          <div *ngFor="let drink of categoryDrinks | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }"
+            class="col-md-6 mb-4" (click)="routerDetailsDrinks(drink.idDrink)">
+            <div class="meal d-flex align-items-center">
+              <div class="meal-image">
+                <img [src]="drink.strDrinkThumb" alt="{{ drink.strDrink }}" class="img-fluid rounded">
+              </div>
+              <div class="meal-details ms-3">
+                <h2 class="meal-title">{{ drink.strDrink }}</h2>
+                <p class="meal-description">{{drink.strInstructions}}</p>
+
+                <p class="meal-price"> {{drink.price| currency}}</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-pagination *ngIf="categoryDrinks && categoryDrinks.length > itemsPerPage"
+      (pageChanged)="onPageChange($event)"></app-pagination>
+  </section>
+</div>

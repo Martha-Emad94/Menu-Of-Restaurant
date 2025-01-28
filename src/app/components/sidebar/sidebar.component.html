@@ -2,22 +2,27 @@
 
   <img class="close" src="assets/images/close.svg" (click)="closeSidebar()" alt="Close Sidebar" />
   <ul class="menu">
-    <li><a routerLink="/" routerLinkActive="active" class="title">HOME</a></li>
-    <li><a routerLink="/menu" routerLinkActive="active" class="title">MENU</a></li>
-    <li><a routerLink="/about" routerLinkActive="active" class="title">ABOUT</a></li>
-    <li><a routerLink="/contact" routerLinkActive="active" class="title">Contact</a></li>
-    <li><button routerLink="/reservation" routerLinkActive="active" class="bnt">Reservation</button></li>
+    <li><a (click)="routerHome()" routerLinkActive="active" class="title">HOME</a></li>
+    <li><a (click)="routerMenu()" routerLinkActive="active" class="title">MENU</a></li>
+    <li><a (click)=" routerAbout()" routerLinkActive="active" class="title">ABOUT</a></li>
+    <li><a (click)="routerContact()" routerLinkActive="active" class="title">Contact</a></li>
+    <li><button (click)="routerReservation()" routerLinkActive="active" class="bnt">Reservation</button></li>
   </ul>
   <div class="">
     <p class="gallery d-flex justify-content-center align-items-center">Gallery</p>
     <div class="box mb-5">
       @for (image of images; let i = $index ; track i) {
       <div class="image-container mt-3 ">
-        <img class="image" [src]="image.src"  [alt]="'Image ' + (i + 1)"  />
+        <img class="image" [src]="image.src"  [alt]="'Image ' + (i + 1)" (click)="openLightbox(image.src)" />
       </div>
     }
     </div>
 
   </div>
-
 </ul>
+<div *ngIf="isLightboxVisible" class="lightbox-overlay" (click)="closeLightbox()">
+  <div class="lightbox-content">
+    <img [src]="currentImage" alt="Enlarged Image" />
+    <span class="close-btn" (click)="closeLightbox()">X</span>
+  </div>
+</div>

@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Meals } from '../../interfaces/meals';
 import { forkJoin } from 'rxjs';
 import { Drinks } from '../../interfaces/drinks';
+import { Category } from '../../interfaces/category';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,10 @@ import { Drinks } from '../../interfaces/drinks';
 export class MealsService {
   private mealsUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?f=';
   private drinksUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
-  constructor(private http: HttpClient) {}
-  getMeals(): Observable<{category: string, meals: Meals[] ,drinks:any[]}[]> {
+  constructor(private http: HttpClient) { }
+
+
+  getMeals(): Observable<Category[]> {
     const alphabet = 'abcdefghijklmnopqrstuvwxyz'; // All letters to filter meals
     const requestsmeals = Array.from(alphabet).map((letter) =>
       this.http.get<{ meals: Meals[] }>(`${this.mealsUrl}${letter}`).pipe(
@@ -43,7 +46,7 @@ export class MealsService {
           {
             category: 'Breakfast',
             meals: allMeals.filter((meal) => meal.strCategory === 'Breakfast'),
-            drinks:allDrinks ,
+            drinks: allDrinks,
           },
           {
             category: 'Lunch',
@@ -61,7 +64,7 @@ export class MealsService {
                 meal.strCategory
               )
             ),
-            drinks:allDrinks,
+            drinks: allDrinks,
           },
           {
             category: 'Dessert',
@@ -72,11 +75,18 @@ export class MealsService {
         ];
 
         // Add drinks as a separate category if needed
-       
+
 
         return categorizedMeals;
       })
     );
+  }
+   
+  getMealsById(id:number):Observable<Meals|undefined>{
+    return this.http.get<Meals>(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+  }
+  getDrinksById(id:number):Observable<Drinks|undefined>{
+    return this.http.get<Drinks>(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
   }
 }
 

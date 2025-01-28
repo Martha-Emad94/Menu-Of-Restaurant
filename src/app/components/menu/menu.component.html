@@ -1,12 +1,7 @@
 <div>
   <section *ngFor="let item of menuItems | paginate: { itemsPerPage: 1, currentPage: currentPage }">
     <!-- قسم الوجبات -->
-    <div class="img-header" [style.background-image]="'url(' + item.image + ')'" 
-    style="background-position: center;">
-      <div class="text-overlay">
-        <h2 class="tit2">{{ item.name }}</h2>
-      </div>
-    </div>
+  <app-title-page [image]="item.image" [title]="item.name"></app-title-page>
 
     <div class="container">
       <div *ngIf="mealsByCategory.length">
@@ -14,7 +9,7 @@
           <div *ngIf="category.category === item.name">
             <!-- Meals Section -->
             <div class="row">
-              <div *ngFor="let meal of category.meals" class="col-md-6 mb-4">
+              <div *ngFor="let meal of category.meals" class="col-md-6 mb-4" (click)="routerDetailsMeals(meal.idMeal)">
                 <div class="meal d-flex align-items-center">
                   <div class="meal-image">
                     <img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}" class="img-fluid rounded">
@@ -33,7 +28,7 @@
 
             <!-- Drinks Section -->
             <div class="row" *ngIf="item.name === 'Drinks'">
-              <div *ngFor="let drink of category.drinks" class="col-md-6 mb-4">
+              <div *ngFor="let drink of category.drinks" class="col-md-6 mb-4" (click)="routerDetailsDrinks(drink.idDrink)">
                 <div class="meal d-flex align-items-center">
                   <div class="meal-image">
                     <img [src]="drink.strDrinkThumb" alt="{{ drink.strDrink }}" class="img-fluid rounded">

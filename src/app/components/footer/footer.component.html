@@ -91,10 +91,10 @@
                 </h4>
         
                 <div class="wrap-gallery-footer flex-w">
-                        <div class="box m-b-14 ">
+                        <div class="box m-b-14 " >
                           @for (image of images; let i = $index ; track i) {
                           <div class="image-container ">
-                            <img class="image mb-3" [src]="image.src"  [alt]="'Image ' + (i + 1)"  />
+                            <img class="image mb-3" [src]="image.src"  [alt]="'Image ' + (i + 1)" (click)="openLightbox(image.src)" />
                           </div>
                         }
                         </div>
@@ -122,3 +122,9 @@
         </div>
     </div>
 </footer>
+<div *ngIf="isLightboxVisible" class="lightbox-overlay" (click)="closeLightbox()">
+    <div class="lightbox-content">
+      <img [src]="currentImage" alt="Enlarged Image" />
+      <span class="close-btn" (click)="closeLightbox()">X</span>
+    </div>
+  </div>

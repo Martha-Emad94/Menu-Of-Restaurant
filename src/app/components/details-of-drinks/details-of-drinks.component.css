@@ -1,0 +1,123 @@
+.details {
+    width: 100%;
+    max-width: 1200px;
+    margin: 70px auto;
+    padding: 20px;
+  }
+  
+  .img {
+    border: 1px solid rgb(209, 205, 205);
+    background-color: rgba(255, 247, 247, 0.521);
+    width: 100%;
+    max-width: 400px;
+    height: 350px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 70px;
+  }
+  
+  .image {
+    width: 400px;
+    height: 350px;
+    border-radius: 10px;
+  }
+  
+  .card-body {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    margin-top: 60px;
+  }
+  
+  .card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 20px;
+  }
+  .title{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #222;
+  }
+  
+  .card-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #6e1313 !important;
+    margin-bottom: 20px;
+    font-family: "Sofia", sans-serif;
+  }
+ 
+  .d-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds space between elements inside the flex container */
+  }
+  .back {
+    width: 100%;
+    max-width: 200px;
+    height: 45px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-family: "Sofia", sans-serif;
+    background-color: rgb(179, 199, 238);
+    color: black;
+    border: none; /* Remove default button border */
+    padding: 8px 16px;
+    margin-bottom: -4px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .bnt {
+    border: none;
+    background-color: white;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    display: flex;
+    align-items: center;
+  }
+  
+  .prev {
+    width: 24px; /* Width of the images */
+    height: 24px; /* Height of the images */
+  }
+  
+  .d-flex .prev-next {
+    font-size: 1rem;
+    margin: 0 10px;
+    color: #333; /* Text color for "Prev | Next" */
+  }
+  @media (max-width: 768px) {
+    .details {
+      margin: 10px auto;
+      padding: 10px;
+    }
+    .img {
+      width: 100%;
+      max-width: 100%;
+      height: auto; /* Allow height to adjust naturally on smaller screens */
+      margin-bottom: 15px;
+    }
+  
+    .image {
+      width: 150px;
+      height: 200px;
+    }
+  
+    .card-body {
+      padding: 10px;
+    }
+  
+    .card-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+  
+    .card-text {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+  }
+  

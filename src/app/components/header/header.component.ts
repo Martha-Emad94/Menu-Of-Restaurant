@@ -17,7 +17,7 @@ export class HeaderComponent {
   constructor(private router:Router,private rout:ActivatedRoute){
 
   }
-  Router(){
+  RouterMenu(){
     this.router.navigateByUrl("/menu");
   }
 
@@ -31,5 +31,8 @@ export class HeaderComponent {
   }
   closeSidebar() {
     this.isSidebarVisible = false;
+  }
+  RouterReservation(){
+    this.router.navigateByUrl("/Reservation");
   }
 }

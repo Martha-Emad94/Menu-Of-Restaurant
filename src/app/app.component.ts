@@ -3,10 +3,11 @@ import { HeaderComponent } from './components/header/header.component';
 
 import { ButtonComponent } from "./shared component/button/button.component";
 import { RouterOutlet } from '@angular/router';
+import { FooterComponent } from "./components/footer/footer.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ HeaderComponent, ButtonComponent,RouterOutlet],
+  imports: [HeaderComponent, ButtonComponent, RouterOutlet, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
