@@ -1,10 +1,5 @@
-
-<div class="container details">
-    <ng-template #loadingTemplate>
-        <div class="loading">
-            <img src="./assets/images/loading.svg" />
-        </div>
-    </ng-template>
+<app-loading-spinner [isLoading]="isLoading"></app-loading-spinner>
+<div class="container details" *ngIf="!isLoading">
     @if(filterDrinks){
     <div class="row" >
         <div class="col-6">
@@ -22,7 +17,7 @@
                         </p>
                         <p class="card-text"><span class="title">Instructions making meal: </span>{{filterDrinks.strInstructions}}</p>
                     </div>
-    
+                   
                     <div class="d-flex">
                         <button class="back" (click)="Back()">Back</button>
                         <div class="d-flex">
@@ -35,6 +30,7 @@
                         </div>
     
                     </div>
+                
                 </div>
             </div>
     

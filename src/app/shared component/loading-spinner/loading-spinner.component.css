@@ -1,0 +1,22 @@
+/* توسيط الـ spinner في منتصف الصفحة */
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* يجعله في منتصف الشاشة */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7); /* خلفية شفافة */
+    z-index: 9999;
+  }
+  
+  /* تغيير لون وحجم الـ spinner */
+  .mat-spinner {
+    width: 80px !important;
+    height: 80px !important;
+    stroke: #ff5722 !important; /* لون برتقالي */
+    animation-duration: 1s !important;
+  }
+  

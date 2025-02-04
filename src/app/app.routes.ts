@@ -18,10 +18,22 @@ export const routes: Routes = [
     {path:'about',component:AboutComponent},
     {path:'contact',component:ContactComponent},
     {path:'Reservation',component:ReservationComponent},
-    { path: 'Category/meals/:category', component: CategoryOfMealsComponent },
-    { path: 'Category/drinks/:category', component: CatergoryOfDrinksComponent },
-    {path:'Meal/:id',component:DetailsOfMenuComponent},
-    {path:'Drink/:id',component:DetailsOfDrinksComponent},
+    { path: 'Category/meals/:category',
+      loadComponent:()=>import('../app/components/category-of-meals/category-of-meals.component')
+      .then((m)=>m.CategoryOfMealsComponent)
+     },
+    { path: 'Category/drinks/:category', 
+      loadComponent:()=>import('../app/components/catergory-of-drinks/catergory-of-drinks.component')
+      .then((m)=>m.CatergoryOfDrinksComponent)
+    },
+    {path:'Meal/:id',
+      loadComponent:()=>
+        import('../app/components/details-of-menu/details-of-menu.component').then((m)=>m.DetailsOfMenuComponent)
+    },
+    {path:'Drink/:id',
+      loadComponent:()=>
+        import('../app/components/details-of-drinks/details-of-drinks.component').then((m)=>m.DetailsOfDrinksComponent)
+    },
     {
         path: '',
         component: HomeComponent,

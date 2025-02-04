@@ -8,10 +8,13 @@ import { PaginationComponent } from '../../shared component/pagination/paginatio
 import { Category } from './../../interfaces/category';
 import { TitlePageComponent } from "../../shared component/title-page/title-page.component";
 import { ActivatedRoute, Router } from '@angular/router';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoadingSpinnerComponent } from "../../shared component/loading-spinner/loading-spinner.component";
+
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [NgxPaginationModule, CommonModule, HttpClientModule, PaginationComponent, TitlePageComponent],
+  imports: [NgxPaginationModule, CommonModule, HttpClientModule, PaginationComponent, TitlePageComponent, MatProgressSpinnerModule, LoadingSpinnerComponent],
 providers: [MealsService],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
@@ -30,7 +33,7 @@ export class MenuComponent implements OnInit {
   currentPage: number = 1; // Unified pagination current page
   itemsPerPage: number = 20; // Items per page
   currentPageDrinks: number=1;
-
+  isLoading:boolean=true;
 
   constructor(private mealsService: MealsService,private router:Router,private rout:ActivatedRoute) {}
 
@@ -39,11 +42,15 @@ export class MenuComponent implements OnInit {
 
   }
 
+ 
+
   fetchMealsByCategory(): void {
+    this.isLoading=true;
     this.mealsService.getMeals().subscribe({
       next: (res) => {
         this.mealsByCategory = res;
         this.calculateMealPrices();
+        this.isLoading=false;
       },
       error: (error) => {
         console.log('Error fetching meals:', error);

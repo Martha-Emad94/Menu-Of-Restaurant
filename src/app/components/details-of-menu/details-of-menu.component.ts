@@ -6,10 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Category } from '../../interfaces/category';
+import { LoadingSpinnerComponent } from "../../shared component/loading-spinner/loading-spinner.component";
 @Component({
   selector: 'app-details-of-menu',
   standalone: true,
-  imports: [FormsModule,HttpClientModule,CommonModule],
+  imports: [FormsModule, HttpClientModule, CommonModule, LoadingSpinnerComponent],
   providers:[MealsService],
   templateUrl: './details-of-menu.component.html',
   styleUrl: './details-of-menu.component.css'
@@ -19,6 +20,7 @@ export class DetailsOfMenuComponent implements OnInit {
   mealId:number=0;
   filterMeal:Meals|undefined;
   totalMeals:number=0;
+ isLoading: boolean=true;
 
   constructor(private mealsService:MealsService,private router:Router,private rout:ActivatedRoute){}
 
@@ -33,10 +35,12 @@ export class DetailsOfMenuComponent implements OnInit {
     }
   }
   FetchMealsByID(id:number){
+    this.isLoading=true;
     this.mealsService.getMealsById(id).subscribe({
       next: (res) => {
         if (res && Array.isArray(res.meals) && res.meals.length > 0) {
           this.filterMeal = res.meals[0]; 
+          this.isLoading=false;
           if (this.filterMeal) {
             this.filterMeal.price = Math.floor(Math.random() * (200 - 50 + 1)) + 50;
           }          console.log('Fetched Meal:', this.filterMeal); // Debugging

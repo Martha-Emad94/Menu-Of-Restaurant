@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Drinks } from '../../interfaces/drinks';
+import { LoadingSpinnerComponent } from "../../shared component/loading-spinner/loading-spinner.component";
+import { Category } from '../../interfaces/category';
 
 @Component({
   selector: 'app-details-of-drinks',
   standalone: true,
-  imports: [HttpClientModule ,FormsModule,CommonModule],
+  imports: [HttpClientModule, FormsModule, CommonModule, LoadingSpinnerComponent],
  providers:[MealsService],
  templateUrl: './details-of-drinks.component.html',
   styleUrl: './details-of-drinks.component.css'
@@ -19,12 +21,14 @@ export class DetailsOfDrinksComponent implements OnInit {
   drinkId:number=0;
   filterDrinks:Drinks|undefined;
   totalDrinks:number=0;
-
+  isLoading:boolean=true;
+  mealsByCategory:Category[] = [];
   constructor(private mealsService:MealsService,private router:Router,private rout:ActivatedRoute){}
 
   ngOnInit(): void {
     this.mealsService.getMeals().subscribe(drinks=>{
       this.totalDrinks=drinks.length;
+      this.mealsByCategory=drinks;
     })
     this.drinkId=Number(this.rout.snapshot.paramMap.get('id'))
     if(this.drinkId){
@@ -33,10 +37,13 @@ export class DetailsOfDrinksComponent implements OnInit {
     }
   }
   fetchDrinksByID(id: number): void {
+    this.isLoading=true;
     this.mealsService.getDrinksById(id).subscribe({
       next: (res) => {
         if (res && Array.isArray(res.drinks) && res.drinks.length > 0) {
           this.filterDrinks = res.drinks[0];
+          this.isLoading=false;
+          console.log('this.filterDrinks', this.filterDrinks)
           if (this.filterDrinks) {
             this.filterDrinks.price = Math.floor(Math.random() * (100 - 30 + 1)) + 30;;
           }
@@ -53,6 +60,7 @@ export class DetailsOfDrinksComponent implements OnInit {
  
   Back(){
     this.router.navigateByUrl("/menu");
+
   }
   prev() {
     this.drinkId=Number(this.rout.snapshot.paramMap.get('id'))

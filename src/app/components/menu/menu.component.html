@@ -2,8 +2,8 @@
   <section *ngFor="let item of menuItems | paginate: { itemsPerPage: 1, currentPage: currentPage }">
     <!-- قسم الوجبات -->
   <app-title-page [image]="item.image" [title]="item.name"></app-title-page>
-
-    <div class="container">
+  <app-loading-spinner [isLoading]="isLoading"></app-loading-spinner>
+    <div class="container" *ngIf="!isLoading">
       <div *ngIf="mealsByCategory.length">
         <div *ngFor="let category of mealsByCategory">
           <div *ngIf="category.category === item.name">

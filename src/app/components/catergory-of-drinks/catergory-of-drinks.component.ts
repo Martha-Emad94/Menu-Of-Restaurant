@@ -8,11 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { PaginationComponent } from '../../shared component/pagination/pagination.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TitlePageComponent } from "../../shared component/title-page/title-page.component";
+import { LoadingSpinnerComponent } from "../../shared component/loading-spinner/loading-spinner.component";
 
 @Component({
   selector: 'app-catergory-of-drinks',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, PaginationComponent, NgxPaginationModule, TitlePageComponent],
+  imports: [CommonModule, FormsModule, HttpClientModule, PaginationComponent, NgxPaginationModule, TitlePageComponent, LoadingSpinnerComponent],
   providers:[MealsService],
   templateUrl: './catergory-of-drinks.component.html',
   styleUrl: './catergory-of-drinks.component.css'
@@ -23,6 +24,7 @@ export class CatergoryOfDrinksComponent implements OnInit{
   currentPage:number=1;
   itemsPerPage:number=20;
   categoryDrinks: any[] = [];
+  isLoading:boolean=true;
   menuItems = [
     { name: 'Starter', image: 'assets/images/starter.jpg' },
     { name: 'Breakfast', image: 'assets/images/menu3.jpg'},
@@ -45,12 +47,14 @@ export class CatergoryOfDrinksComponent implements OnInit{
   }
 
   fetchMealsByCategory(): void {
+    this.isLoading=true
     this.mealsService.getMeals().subscribe({
       next: (res) => {
         this.Drinks = res;
         console.log('res', res)
         this.calculateMealPrices();
         this.filterMealsByCategory();
+        this.isLoading=false;
       },
       error: (error) => {
         console.log('Error fetching meals:', error);

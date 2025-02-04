@@ -7,8 +7,8 @@
         </div>
        
        </div>
-  
-      <div class="container">
+       <app-loading-spinner [isLoading]="isLoading"></app-loading-spinner>
+      <div class="container" *ngIf="!isLoading">
             <div *ngIf="categoryMeals && categoryMeals.length > 0 ">
               <!-- Meals Section -->
               <div class="row">
